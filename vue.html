@@ -1,0 +1,50 @@
+<html>
+
+<head>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        // Babel generates calls to React.createElement by default, so we redefine that:
+        const React = { createElement: Vue.h };
+    </script>
+</head>
+
+<body>
+    <script>var numOfGuests = 4</script>
+
+    <div id="app"></div>
+
+    <script src="js/apiConfig.js"></script>
+    <script src="js/dishSource.js"></script>
+    <script src="js/views/summaryView.js" type="text/jsx"></script>
+    <script src="js/views/sidebarView.js" type="text/jsx"></script>
+    <script src="js/views/searchView.js" type="text/jsx"></script>
+    <script src="js/DinnerModel.js" type="text/jsx"></script>
+    <script src="vuejs/sidebarPresenter.js" type="text/jsx"></script>
+    <script src="vuejs/summaryPresenter.js" type="text/jsx"></script>
+    <script src="js/app.js" type="text/jsx"></script>
+    <script type="text/jsx">
+
+
+const TopLevelModel= {  
+    data(){ return  {model: new DinnerModel()}; }, 
+    render(){  return <App model={this.model} />; }
+};
+Vue.render(<TopLevelModel />, document.getElementById("app"));
+
+
+
+DishSource.apiCall("/recipes/quickAnswer?"+new URLSearchParams({q:"How much vitamin C is in an orange?"}))     
+     .then(data=> console.log(data)).catch(error=> console.log("there was a problem", error))
+     
+     
+     
+
+     DishSource.searchDishes({type:"dessert"}).then(console.log).catch(console.error)
+
+     
+</script>
+
+
+
+</html>
