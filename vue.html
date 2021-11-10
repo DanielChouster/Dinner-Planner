@@ -7,6 +7,11 @@
         // Babel generates calls to React.createElement by default, so we redefine that:
         const React = { createElement: Vue.h };
     </script>
+
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+
 </head>
 
 <body>
@@ -34,15 +39,16 @@ Vue.render(<TopLevelModel />, document.getElementById("app"));
 
 
 
-DishSource.apiCall("/recipes/quickAnswer?"+new URLSearchParams({q:"How much vitamin C is in an orange?"}))     
-     .then(data=> console.log(data)).catch(error=> console.log("there was a problem", error))
-     
-     
-     
+Promise.all(
+     [DishSource.getDishDetails(548321 ), 
+     DishSource.getDishDetails(758118 ),
+     DishSource.getDishDetails(1152690)]
+).then(values=> Vue.render(
+    <SidebarView guests={5} 
+                 dishes={values} />
+, document.getElementById("app")))
 
-     DishSource.searchDishes({type:"dessert"}).then(console.log).catch(console.error)
 
-     
 </script>
 
 
