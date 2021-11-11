@@ -13,7 +13,8 @@ const DishSource = {   // JS object creation literal
 
         /*TODO check response and throw an error if not OK (compose error msg from  
         response.statusText), 
-Otherwise if response contains 200/OK just return response */ })
+        Otherwise if response contains 200/OK just return response */ 
+        })
             // from HTTP response headers to HTTP response data
             .then(response => response.json());
     }
