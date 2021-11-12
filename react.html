@@ -4,6 +4,11 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+   
+
 </head>
 
 <body>
@@ -11,31 +16,15 @@
 </body>
 <script src="js/views/summaryView.js" type="text/jsx"></script>
 <script src="js/views/sidebarView.js" type="text/jsx"></script>
+<script src="js/views/searchView.js" type="text/jsx"></script>
+
 <script type="text/jsx">
 
 
-function ReactSidebarLocalState(){
-    const numberState= React.useState(2); 
-    const num=       numberState[0];     
-    const setNumber= numberState[1];     
-    return <SidebarView guests={num}
-                        setGuests={x=> {return setNumber(x);} } />;
-}
-ReactDOM.render(<ReactSidebarLocalState />,document.getElementById("app"));
 
-function RenderTest(){ console.log("React sub-component render test"); return false; }
-function ReactTopLevelNumber(){
-    const [num, setNumber]= React.useState(2); 
-    return (
-      <div>
-         <SidebarView guests={num} setGuests={x=> {return setNumber(x);}} />
-         <SummaryView persons = {num} />
-         <RenderTest />
-      </div> 
-    );
-}
-ReactDOM.render(<ReactTopLevelNumber />, document.getElementById("app"))
 
+ReactDOM.render(
+         <SearchFormView options={["starter", "main course", "dessert"]} /> ,document.getElementById("app"))
 
 
 </script>

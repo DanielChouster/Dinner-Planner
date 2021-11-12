@@ -4,5 +4,54 @@ span.searchResult
     display: inline-block;
     width: 200px;
     vertical-align: text-bottom;
-    
+
+}
+div.sidebar
+{
+    border-style: solid;
+    width: 800px;
+}
+
+div.searchResult
+{
+    border-style: solid;
+    width: 800px;
+}
+
+div.summaryview
+{
+    border-style: solid;
+    width: 800px;
+
+}
+td.price
+{
+    text-align: right;   
+}
+
+div.detailsviewbutton
+{    
+    float:right;
+    padding: 0;
+    margin: auto;
+    width: 28%;
+ }
+
+div.price
+{
+    padding: 20px;
+    float: right;
+    padding: 10px;
+    border-style: solid;
+    border-width: thin;
+    width: 200px;
+
+}
+
+div.detailsview
+{
+    border-style: solid;
+    border-width: thin;
+    width: 800px;
+    padding: 20px;
 }
