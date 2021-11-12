@@ -11,7 +11,7 @@ function SearchFormView(props) {
 
                         return (
 
-                            <option><div> {opt}</div></option>
+                            <option key={ opt } >  {opt}</option>
 
                         )
                     })}
@@ -33,7 +33,7 @@ function SearchResultsView(props) {
     //console.log("write " + props.searchResults.data.results[0]);
 
     return (
-        <div /*style={{ border: "black", borderWidth: "1px", borderStyle: "solid", width: "200" }}*/>
+        <div class="searchresultsview">
 
             {props.searchResults.data.results.map(
                 function (opt) {
@@ -53,6 +53,4 @@ function SearchResultsView(props) {
         </div>
     );
 
-}//<img src={props.searchResults.data.results[1].image} width="100" height="100" ></img>
-//<div>{props.searchResults.data.results[1].title}</div>
-//                            <div>{opt.title}</div>
+}

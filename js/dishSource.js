@@ -8,9 +8,12 @@ const DishSource = {   // JS object creation literal
                 "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
             }
         }).then(response => {
-            if (!response.ok) { throw 'Error: ' + response.statusText; } //response.ok same as code 200. !response.ok anything else including 404
-            else return response; //????? correct???? 
-        })
+            if (!response.ok) { throw 'Error: ' + response.statusText; }
+            return response; //????? correct????
+
+        /*TODO check response and throw an error if not OK (compose error msg from  
+        response.statusText), 
+Otherwise if response contains 200/OK just return response */ })
             // from HTTP response headers to HTTP response data
             .then(response => response.json());
     }
