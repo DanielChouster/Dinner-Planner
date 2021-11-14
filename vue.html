@@ -1,57 +1,53 @@
 <html>
 
-    <head>
-        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-        <script>
-            // Babel generates calls to React.createElement by default, so we redefine that:
-            const React = {createElement: Vue.h};
-        </script>
+<head>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        // Babel generates calls to React.createElement by default, so we redefine that:
+        const React = { createElement: Vue.h };
+    </script>
 
-        <link rel="stylesheet" href="style.css">
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-
-
-    </head>
-
-    <body>
-        <script>var numOfGuests = 4</script>
-
-        <div id="app"></div>
-
-        <script src="js/apiConfig.js"></script>
-        <script src="js/dishSource.js"></script>
-        <script src="js/views/summaryView.js" type="text/jsx"></script>
-        <script src="js/views/sidebarView.js" type="text/jsx"></script>
-        <script src="js/views/detailsView.js" type="text/jsx"></script>
-        <script src="js/views/searchView.js" type="text/jsx"></script>
-        <script src="js/DinnerModel.js" type="text/jsx"></script>
-        <script src="vuejs/sidebarPresenter.js" type="text/jsx"></script>
-        <script src="vuejs/summaryPresenter.js" type="text/jsx"></script>
-        <script src="js/app.js" type="text/jsx"></script>
-        <script type="text/jsx">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
 
 
+</head>
 
-const TopLevelModel= {  
-    data(){ return  {model: new DinnerModel()}; }, 
-    render(){  return <App model={this.model} />; }
-};
-Vue.render(<TopLevelModel />, document.getElementById("app"));
+<body>
+    <script>var numOfGuests = 4</script>
+
+    <div id="app"></div>
+
+    <script src="js/apiConfig.js"></script>
+    <script src="js/dishSource.js"></script>
+    <script src="js/views/summaryView.js" type="text/jsx"></script>
+    <script src="js/views/sidebarView.js" type="text/jsx"></script>
+    <script src="js/views/detailsView.js" type="text/jsx"></script>
+    <script src="js/views/searchView.js" type="text/jsx"></script>
+    <script src="js/DinnerModel.js" type="text/jsx"></script>
+    <script src="vuejs/sidebarPresenter.js" type="text/jsx"></script>
+    <script src="vuejs/summaryPresenter.js" type="text/jsx"></script>
+    <script src="js/app.js" type="text/jsx"></script>
+    <script type="text/jsx">
 
 
 
 
-DishSource.getDishDetails(1445969).then(details=>
-          Vue.render(<DetailsView dish={details} people={3}  isDishInMenu={false}  
-                                    dishAdded={()=>console.log("User wants to add this dish! ", details)} />
-                       , document.getElementById("app")));
 
 
+
+        const myModel=new DinnerModel(5);
+Promise.all(
+     [DishSource.getDishDetails(523145), 
+     DishSource.getDishDetails(787321),
+     DishSource.getDishDetails(452179)]
+).then(values=> values.map(d=>myModel.addToMenu(d)))
+ .then(()=> { myModel.removeFromMenu({id:787321}); console.log(myModel); })
 </script>
 
-   
 
-   
+
+
 
 </html>

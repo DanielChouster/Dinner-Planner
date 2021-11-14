@@ -55,3 +55,14 @@ div.detailsview
     width: 800px;
     padding: 20px;
 }
+table.b {
+    border: 1px solid black;
+    border-collapse: collapse;
+     table-layout: fixed;
+     width: 800px;
+}
+
+td.b
+{
+    border: 1px solid black;
+}
