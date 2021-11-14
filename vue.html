@@ -15,39 +15,29 @@
 </head>
 
 <body>
-    <script>var numOfGuests = 4</script>
+    
 
     <div id="app"></div>
+</body>
+<!--<script>var numOfGuests = 4</script>-->
+<script src="js/apiConfig.js"></script>
+<script src="js/dishSource.js"></script>
+<script src="js/app.js"></script>
+<script src="js/DinnerModel.js"></script>
+<script src="js/views/summaryView.js" type="text/jsx"></script>
+<script src="js/views/sidebarView.js" type="text/jsx"></script>
+<script src="js/views/detailsView.js" type="text/jsx"></script>
+<script src="js/views/searchView.js" type="text/jsx"></script>
+<script src="vuejs/sidebarPresenter.js" type="text/jsx"></script>
+<script src="vuejs/summaryPresenter.js" type="text/jsx"></script>
 
-    <script src="js/apiConfig.js"></script>
-    <script src="js/dishSource.js"></script>
-    <script src="js/views/summaryView.js" type="text/jsx"></script>
-    <script src="js/views/sidebarView.js" type="text/jsx"></script>
-    <script src="js/views/detailsView.js" type="text/jsx"></script>
-    <script src="js/views/searchView.js" type="text/jsx"></script>
-    <script src="js/DinnerModel.js" type="text/jsx"></script>
-    <script src="vuejs/sidebarPresenter.js" type="text/jsx"></script>
-    <script src="vuejs/summaryPresenter.js" type="text/jsx"></script>
-    <script src="js/app.js" type="text/jsx"></script>
-    <script type="text/jsx">
-
-
-
-
-
-
-
-        const myModel=new DinnerModel(5);
-Promise.all(
-     [DishSource.getDishDetails(523145), 
-     DishSource.getDishDetails(787321),
-     DishSource.getDishDetails(452179)]
-).then(values=> values.map(d=>myModel.addToMenu(d)))
- .then(()=> { myModel.removeFromMenu({id:787321}); console.log(myModel); })
+<script type="text/jsx">
+    const myModel=new DinnerModel(5);
+    Promise.all(
+        [DishSource.getDishDetails(523145), 
+        DishSource.getDishDetails(787321),
+        DishSource.getDishDetails(452179)]
+    ).then(values=> values.map(d=>myModel.addToMenu(d)))
+    .then(()=> { myModel.removeFromMenu({id:787321}); console.log(myModel); })
 </script>
-
-
-
-
-
 </html>
