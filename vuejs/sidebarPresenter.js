@@ -17,4 +17,8 @@ function SidebarPresenter(props) {   // assume a model prop
         dishChoice={param => {props.model.setCurrentDish(param)}} 
         removeDish={param => {props.model.removeFromMenu(param)}}
     />;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> ad6eab72913e20e1dd17957ba8372141aeb8c370
