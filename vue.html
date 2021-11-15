@@ -3,6 +3,17 @@
 <head>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!--<script>var numOfGuests = 4</script>-->
+    <script src="js/apiConfig.js"></script>
+    <script src="js/dishSource.js"></script>
+    <script src="js/DinnerModel.js"></script>
+    <script src="js/app.js" type="text/jsx"></script>
+    <script src="js/views/summaryView.js" type="text/jsx"></script>
+    <script src="js/views/sidebarView.js" type="text/jsx"></script>
+    <script src="js/views/detailsView.js" type="text/jsx"></script>
+    <script src="js/views/searchView.js" type="text/jsx"></script>
+    <script src="vuejs/sidebarPresenter.js" type="text/jsx"></script>
+    <script src="vuejs/summaryPresenter.js" type="text/jsx"></script>
     <script>
         // Babel generates calls to React.createElement by default, so we redefine that:
         const React = { createElement: Vue.h };
@@ -15,21 +26,9 @@
 </head>
 
 <body>
-    
-
     <div id="app"></div>
 </body>
-<!--<script>var numOfGuests = 4</script>-->
-<script src="js/apiConfig.js"></script>
-<script src="js/dishSource.js"></script>
-<script src="js/app.js"></script>
-<script src="js/DinnerModel.js"></script>
-<script src="js/views/summaryView.js" type="text/jsx"></script>
-<script src="js/views/sidebarView.js" type="text/jsx"></script>
-<script src="js/views/detailsView.js" type="text/jsx"></script>
-<script src="js/views/searchView.js" type="text/jsx"></script>
-<script src="vuejs/sidebarPresenter.js" type="text/jsx"></script>
-<script src="vuejs/summaryPresenter.js" type="text/jsx"></script>
+
 
 <script type="text/jsx">
     const myModel=new DinnerModel(5);
