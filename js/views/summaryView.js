@@ -1,5 +1,7 @@
 function SummaryView(props) {
-    console.log("write " + props);
+    //console.log("write " + props);
+    if (typeof props.ingredients === "undefined")
+        props.ingredients = [];
     return (// a lonely return on a line returns undefined. Parentheses needed
         <div class="summaryview">
             <br></br>
@@ -67,7 +69,7 @@ function Ingredients(dishArr) {
         if (!result[i.id])
             // ingredient not taken into account yet
             // associate the ingredient with the ID
-            // {...i } is a copy of the ingredient (spread syntax)
+            // {...i } is a *copy* of the ingredient (spread syntax)
             // we copy just in case, as we’ll change the object below
             result[i.id] = { ...i };
         else {
@@ -102,3 +104,4 @@ function compareIngredients(a, b) {
         throw 'ERROR: ingredient names are not unique';
 
 }
+

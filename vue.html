@@ -36,14 +36,22 @@
 
 
 
-
-        const myModel=new DinnerModel(5);
+        const myModel=new DinnerModel(3);
+const TopLevelModel= {  
+    data(){ return  {model: myModel}; }, 
+    render(){  return <App model={this.model} />; }
+};
+ 
+ 
 Promise.all(
      [DishSource.getDishDetails(523145), 
      DishSource.getDishDetails(787321),
      DishSource.getDishDetails(452179)]
-).then(values=> values.map(d=>myModel.addToMenu(d)))
- .then(()=> { myModel.removeFromMenu({id:787321}); console.log(myModel); })
+).then(function(values){ 
+       values.map(d=>myModel.addToMenu(d));   // add the dishes to the model
+       Vue.render(<TopLevelModel />, document.getElementById("app"));
+      });
+
 </script>
 
 
