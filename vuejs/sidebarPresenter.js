@@ -6,5 +6,7 @@ function SidebarPresenter(props) {   // assume a model prop
                           /* TODO custom event callback 
            that calls the method setNumberOfGuests of props.model  */}
         dishes={props.model.dishes}
-    />
+        dishChoice={param => {props.model.setCurrentDish(param)}} 
+        removeDish={param => {props.model.removeFromMenu(param)}}
+    />;
 }
