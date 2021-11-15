@@ -73,12 +73,14 @@ td.b
     flex-direction: row;
     height: 100%;
 }
-.sidebar{
+.sidebarContent{
     height: 100%;
+
 }
 .mainContent{
     flex:1;
     height: 100%;
+
 }
 @media only screen and (max-width: 768px) {
     .flexParent{flex-direction: column;}
