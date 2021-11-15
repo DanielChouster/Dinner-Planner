@@ -9,7 +9,7 @@ span.searchResult
 div.sidebar
 {
     border-style: solid;
-    width: 800px;
+    /*width: 430px;*/
 }
 
 div.searchResult
@@ -22,7 +22,7 @@ div.summaryview
 {
     border-style: solid;
     width: 800px;
-
+    padding:20px;
 }
 td.price
 {
@@ -66,4 +66,23 @@ table.b {
 td.b
 {
     border: 1px solid black;
+}
+.debug{border-style: solid;border-color: blue;}
+.flexParent{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+.sidebar{
+    height: 100%;
+}
+.mainContent{
+    flex:1;
+    height: 100%;
+}
+@media only screen and (max-width: 768px) {
+    .flexParent{flex-direction: column;}
+}
+@media only screen and (max-width: 400px) {
+    
 }
