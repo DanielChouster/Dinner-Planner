@@ -4,7 +4,9 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
-
+    <script src="js/views/promiseNoData.js" type="text/jsx"></script>
+    <script src="js/dishSource.js"></script>
+    <script src="js/apiConfig.js"></script>
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width,initial-scale=1">
    
@@ -17,16 +19,45 @@
 <script src="js/views/summaryView.js" type="text/jsx"></script>
 <script src="js/views/sidebarView.js" type="text/jsx"></script>
 <script src="js/views/searchView.js" type="text/jsx"></script>
+<script src="js/views/detailsView.js" type="text/jsx"></script>
 
 <script type="text/jsx">
+const searchPromise= DishSource.searchDishes({type:"main course", query:"pasta" });
+function SearchTest(){
+    const [data, setData]=React.useState(null);
+    const [error, setError]=React.useState(null);
+    React.useEffect(
+        function(){ 
+            let cancelled = false;
+            if(searchPromise)
+                searchPromise.then(function(dt){ if(!cancelled)setData(dt);})
+                    .catch(function(dt){ if(!cancelled)setError(er);});
+            return function(){cancelled=true;};
+    }, [searchPromise]);
+    return promiseNoData(searchPromise, data, error) || <SearchResultsView searchResults={data} dishChosen={console.log}/>
+} 
 
+const detailsPromise= DishSource.getDishDetails(523145);
+function DetailsTest(){
+    const [data, setData]=React.useState(null);
+    const [error, setError]=React.useState(null);
+    React.useEffect(
+        function(){ 
+            let cancelled = false;
+            if(detailsPromise)
+                detailsPromise.then(function(dt){ if(!cancelled)setData(dt);})
+                    .catch(function(dt){ if(!cancelled)setError(er);});
+            return function(){cancelled=true;};
+    }, [detailsPromise]);
+    return promiseNoData(searchPromise, data, error) || <DetailsView dish={data} people={4} isDishInMenu={true} dishAdded={console.log}/>
+}
+ReactDOM.render(<div><SearchTest /><DetailsTest/></div>,document.getElementById("app"));
 
-
-
+/*
 ReactDOM.render(
-         <SearchFormView options={["starter", "main course", "dessert"]} /> ,document.getElementById("app"))
-
-
+    <SearchFormView options={["starter", "main course", "dessert"]} /> ,document.getElementById("app")
+)
+*/
 </script>
 
 </html>
