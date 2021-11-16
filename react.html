@@ -7,6 +7,10 @@
     <script src="js/views/promiseNoData.js" type="text/jsx"></script>
     <script src="js/dishSource.js"></script>
     <script src="js/apiConfig.js"></script>
+    <script src="js/views/summaryView.js" type="text/jsx"></script>
+    <script src="js/views/sidebarView.js" type="text/jsx"></script>
+    <script src="js/views/searchView.js" type="text/jsx"></script>
+    <script src="js/views/detailsView.js" type="text/jsx"></script>
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width,initial-scale=1">
    
@@ -16,10 +20,7 @@
 <body>
     <div id="app"></div>
 </body>
-<script src="js/views/summaryView.js" type="text/jsx"></script>
-<script src="js/views/sidebarView.js" type="text/jsx"></script>
-<script src="js/views/searchView.js" type="text/jsx"></script>
-<script src="js/views/detailsView.js" type="text/jsx"></script>
+
 
 <script type="text/jsx">
 const searchPromise= DishSource.searchDishes({type:"main course", query:"pasta" });
