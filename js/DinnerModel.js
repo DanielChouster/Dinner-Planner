@@ -47,10 +47,14 @@ class DinnerModel
             }
         
         addObserver(callback){
-            this.observers.push(callback);
+            this.observers = [...this.observers,callback];
+            
         }
         removeObserver(callback){
-            
+            this.observers = this.observers.filter(removeFilter);
+            function removeFilter(currentCallback){
+                return currentCallback !== callback;
+            }
         }
         notifyObservers(){
 
