@@ -5,6 +5,7 @@
     <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
     <script src="js/views/promiseNoData.js" type="text/jsx"></script>
+    <script src="js/DinnerModel.js"></script>
     <script src="js/dishSource.js"></script>
     <script src="js/apiConfig.js"></script>
     <script src="js/views/summaryView.js" type="text/jsx"></script>
@@ -21,7 +22,7 @@
     <div id="app"></div>
 </body>
 
-
+<script>const myModel = new DinnerModel();</script>
 <script type="text/jsx">
 const searchPromise= DishSource.searchDishes({type:"main course", query:"pasta" });
 function SearchTest(){

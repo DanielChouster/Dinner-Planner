@@ -3,6 +3,7 @@ class DinnerModel
 
         constructor(guests = 2, dishes = [], currentDish = null)
             {
+                this.observers = [];
                 if (typeof guests === "undefined")
                     {
                         guests = 2;
@@ -44,5 +45,14 @@ class DinnerModel
             {
                 this.currentDish = id;
             }
+        
+        addObserver(callback){
+            this.observers.push(callback);
+        }
+        removeObserver(callback){
+            
+        }
+        notifyObservers(){
 
+        }
     }
