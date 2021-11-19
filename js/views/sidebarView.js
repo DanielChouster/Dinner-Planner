@@ -12,20 +12,20 @@ function SidebarView(props)
                 props.dishes = [];
             }
 
-var totalPrice = props.dishes.reduce(reducer,0); //call function reducer, start from 0
-function reducer(total, dish) 
-{
-  return total + props.guests * dish.pricePerServing;
-}
+        var totalPrice = props.dishes.reduce(reducer,0); //call function reducer, start from 0
+        function reducer(total, dish) 
+        {
+        return total + props.guests * dish.pricePerServing;
+        }
 
 
         return (
                 <div class="sidebar">
-                    <br></br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    
                     <button disabled={b} onClick={e => props.setGuests(props.guests - 1)}>–</button>
                     <span>&nbsp;{props.guests}&nbsp;</span>
                     <button onClick={e => props.setGuests(props.guests + 1)}>+</button>
-                    <br></br> < br > </br>
+                    
                     <table>
                         <tbody>
                            {[...props.dishes].sort(compareDishes).map(
@@ -49,7 +49,7 @@ function reducer(total, dish)
 
                                             );
                                 }
-                    )}
+                            )}
                             <tr>
                                 <td>
                 

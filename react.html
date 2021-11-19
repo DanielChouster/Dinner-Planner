@@ -12,6 +12,9 @@
     <script src="js/views/sidebarView.js" type="text/jsx"></script>
     <script src="js/views/searchView.js" type="text/jsx"></script>
     <script src="js/views/detailsView.js" type="text/jsx"></script>
+    <script src="reactjs/sidebarPresenter.js" type="text/jsx"></script>
+    <script src="reactjs/summaryPresenter.js" type="text/jsx"></script>
+    <script src="js/app.js" type="text/jsx"></script>
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width,initial-scale=1">
    
@@ -22,23 +25,24 @@
     <div id="app"></div>
 </body>
 
-<script>const myModel = new DinnerModel();</script>
+<!--<script>const myModel = new DinnerModel();</script>-->
 <script type="text/jsx">
+    const myModel=new DinnerModel(3); 
+    Promise.all(
+         [DishSource.getDishDetails(523145), 
+         DishSource.getDishDetails(787321),
+         DishSource.getDishDetails(452179)]
+    ).then(function(values){ 
+           values.map(d=>myModel.addToMenu(d));   // add the dishes to the model
+           ReactDOM.render(<App model={myModel}/>, document.getElementById("app"));
+          });
+    
+/*
 const searchPromise= DishSource.searchDishes({type:"main course", query:"pasta" });
 function SearchTest(){
     const [data, setData]=React.useState(null);
     const [error, setError]=React.useState(null);
-    /*
-    React.useEffect(
-        function(){ 
-            let cancelled = false;
-            if(searchPromise)
-                searchPromise.then(function(dt){ if(!cancelled)setData(dt);})
-                    .catch(function(dt){ if(!cancelled)setError(er);});
-            return function(){cancelled=true;};
-    }, [searchPromise]);
-    return promiseNoData(searchPromise, data, error) || <SearchResultsView searchResults={data} dishChosen={console.log}/>
-    */
+
     React.useEffect(
         function(){ 
                 searchPromise.then(dt => setData(dt))
@@ -51,14 +55,7 @@ const detailsPromise= DishSource.getDishDetails(523145);
 function DetailsTest(){
     const [data, setData]=React.useState(null);
     const [error, setError]=React.useState(null);
-    /*React.useEffect(
-        function(){ 
-            let cancelled = false;
-            if(detailsPromise)
-                detailsPromise.then(function(dt){ if(!cancelled)setData(dt);})
-                    .catch(function(dt){ if(!cancelled)setError(er);});
-            return function(){cancelled=true;};
-    }, [detailsPromise]);*/
+
     React.useEffect(
         function(){ 
                 detailsPromise.then(dt => setData(dt))
@@ -68,7 +65,7 @@ function DetailsTest(){
 }
 ReactDOM.render(<div><SearchTest /><DetailsTest/></div>,document.getElementById("app"));
 
-/*
+
 ReactDOM.render(
     <SearchFormView options={["starter", "main course", "dessert"]} /> ,document.getElementById("app")
 )
