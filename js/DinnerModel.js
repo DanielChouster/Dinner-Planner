@@ -61,6 +61,6 @@ class DinnerModel
             }
         }
         notifyObservers(){
-            this.observers.forEach(cb=>cb());
+            this.observers.forEach(cb=>cb.call());
         }
     }
