@@ -6,7 +6,8 @@ function promiseNoData(promise, data, error){
     else return false; */
     if(promise && data && !error) return false;
     else{
-        return (error && console.log("There was an error caused by: " + error)), <span>{error}</span> 
-        || (promise && <img src="http://www.csc.kth.se/~cristi/loading.gif"/>) || (data || <span>no data</span>);
+        return ((error && <span>{error}</span>)
+        || (promise && <img src="http://www.csc.kth.se/~cristi/loading.gif"/>) 
+        || (data || <span>no data</span>));
     }
 }
