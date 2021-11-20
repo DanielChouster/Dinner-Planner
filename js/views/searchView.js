@@ -30,7 +30,12 @@ function SearchFormView(props) {
 
 
 function SearchResultsView(props) {
-    //console.log("write " + props.searchResults.data.results[0]);
+
+    if (props.searchResults===null)
+        return;
+    if (typeof props.searchResults.data === "undefined")
+        return;
+    console.log(props.searchResults);
 
     return (
         <div class="searchresultsview">
@@ -47,7 +52,7 @@ function SearchResultsView(props) {
 
                         </span>
 
-                    )
+                    );
                 })}
 
         </div>
