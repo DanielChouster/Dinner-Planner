@@ -4,7 +4,17 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
-
+    <script src="js/views/promiseNoData.js" type="text/jsx"></script>
+    <script src="js/DinnerModel.js"></script>
+    <script src="js/dishSource.js"></script>
+    <script src="js/apiConfig.js"></script>
+    <script src="js/views/summaryView.js" type="text/jsx"></script>
+    <script src="js/views/sidebarView.js" type="text/jsx"></script>
+    <script src="js/views/searchView.js" type="text/jsx"></script>
+    <script src="js/views/detailsView.js" type="text/jsx"></script>
+    <script src="reactjs/sidebarPresenter.js" type="text/jsx"></script>
+    <script src="reactjs/summaryPresenter.js" type="text/jsx"></script>
+    <script src="js/app.js" type="text/jsx"></script>
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width,initial-scale=1">
    
@@ -14,18 +24,19 @@
 <body>
     <div id="app"></div>
 </body>
-<script src="js/views/summaryView.js" type="text/jsx"></script>
-<script src="js/views/sidebarView.js" type="text/jsx"></script>
-<script src="js/views/searchView.js" type="text/jsx"></script>
 
+<!--<script>const myModel = new DinnerModel();</script>-->
 <script type="text/jsx">
-
-
-
-
-ReactDOM.render(
-         <SearchFormView options={["starter", "main course", "dessert"]} /> ,document.getElementById("app"))
-
+    const myModel=new DinnerModel(3); 
+    Promise.all(
+         [DishSource.getDishDetails(523145), 
+         DishSource.getDishDetails(787321),
+         DishSource.getDishDetails(452179)]
+    ).then(function(values){ 
+           values.map(d=>myModel.addToMenu(d));   // add the dishes to the model
+           ReactDOM.render(<App model={myModel}/>, document.getElementById("app"));
+          });
+    
 
 </script>
 

@@ -11,7 +11,7 @@ function SearchFormView(props) {
 
                         return (
 
-                            <option key={ opt } >  {opt}</option>
+                            <option key={opt} >  {opt}</option>
 
                         )
                     })}
@@ -31,7 +31,10 @@ function SearchFormView(props) {
 
 function SearchResultsView(props) {
     //console.log("write " + props.searchResults.data.results[0]);
-
+    if (typeof props.searchResults.data === "undefined")
+        return;
+        if (props.searchResults===null)
+        return;
     return (
         <div class="searchresultsview">
 
@@ -40,7 +43,7 @@ function SearchResultsView(props) {
 
                     return (
 
-                        <span class="searchResult" onClick={e=>props.dishChosen((opt.id))}>
+                        <span class="searchResult" onClick={e => props.dishChosen((opt.id))}>
 
                             <img src={opt.image} width="100" height="100" ></img>
                             <div>{opt.title}</div>

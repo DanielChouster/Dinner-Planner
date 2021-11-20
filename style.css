@@ -8,8 +8,7 @@ span.searchResult
 }
 div.sidebar
 {
-    border-style: solid;
-    width: 800px;
+   width: available;
 }
 
 div.searchResult
@@ -20,9 +19,7 @@ div.searchResult
 
 div.summaryview
 {
-    border-style: solid;
-    width: 800px;
-
+   
 }
 td.price
 {
@@ -60,10 +57,84 @@ table.b {
     border: 1px solid black;
     border-collapse: collapse;
      table-layout: fixed;
-     width: 800px;
+     width: available;
 }
 
 td.b
 {
     border: 1px solid black;
+}
+.debug{border-style: solid;border-color: rgb(0, 0, 0); border-width: thin; padding: 10px; height: available}
+.flexParent{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    
+}
+.sidebarContent{
+    
+
+}
+.mainContent{
+    flex:1;
+    margin-left: 20px;
+
+}
+@media only screen and (max-width: 768px) {
+    .flexParent{flex-direction: column;}
+    .mainContent{
+        margin-left: 0px;
+        width:available;
+                }
+
+.debug{width: available}
+.sidebarContent{width: available}
+        
+}
+
+
+@media only screen and (max-width: 400px) {
+    
+}
+
+
+
+/*td.b
+{
+    border: 1px solid black;
+}
+
+
+
+.debug{
+    border-style: solid;
+    border-width: thin;
+    padding: 10px;
+    height: available
+}
+.flexParent{
+    display:flex ;
+    overflow :auto;
+    width: available;
+    height: 100%;
+}
+.sidebar{
+    width:300px;
+}
+.mainContent{
+    width: 100%;
+    margin-left: 10px;
+}
+@media (max-width: 600px)
+{
+    .flexParent{
+        display:block;
+        overflow-y :auto;
+        overflow-x :hidden;
+    }
+    .mainContent{
+        margin-left: 0px;
+        width:available;
+        width: 300px
+    }
 }
