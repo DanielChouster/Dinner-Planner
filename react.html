@@ -14,6 +14,7 @@
     <script src="js/views/detailsView.js" type="text/jsx"></script>
     <script src="reactjs/sidebarPresenter.js" type="text/jsx"></script>
     <script src="reactjs/summaryPresenter.js" type="text/jsx"></script>
+    <script src="reactjs/searchPresenter.js" type="text/jsx"></script>
     <script src="js/app.js" type="text/jsx"></script>
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -27,15 +28,9 @@
 
 <!--<script>const myModel = new DinnerModel();</script>-->
 <script type="text/jsx">
-    const myModel=new DinnerModel(3); 
-    Promise.all(
-         [DishSource.getDishDetails(523145), 
-         DishSource.getDishDetails(787321),
-         DishSource.getDishDetails(452179)]
-    ).then(function(values){ 
-           values.map(d=>myModel.addToMenu(d));   // add the dishes to the model
-           ReactDOM.render(<App model={myModel}/>, document.getElementById("app"));
-          });
+const myModel=new DinnerModel(3); 
+   ReactDOM.render(<App model={myModel}/>, document.getElementById("app"));
+      
     
 /*
 const searchPromise= DishSource.searchDishes({type:"main course", query:"pasta" });
