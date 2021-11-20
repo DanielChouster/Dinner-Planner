@@ -1,3 +1,6 @@
+
+/* global DishSource */
+
 function SearchPresenter(props)
 {
     const PromisePresenter = {
@@ -27,12 +30,14 @@ function SearchPresenter(props)
             }
         },
         render() {
-            return (promiseNoData(this.promise, this.data, this.error) || <SearchResultsView searchResults={this.data} />);
+            return (promiseNoData(this.promise, this.data, this.error) || <SearchResultsView searchResults={this.data} />)
         }
     }
 
+PromisePresenter.created();
     let searchQuery = "";
     let searchType = "";
+    let data = "";
 
     // assume a model prop
     return(
@@ -41,7 +46,8 @@ function SearchPresenter(props)
                 <SearchFormView options={["starter", "main course", "dessert"]} 
                                 onSearch={() => PromisePresenter.promise = DishSource.searchDishes({type: searchType, query: searchQuery}).
                                                 then(result => {
-                                                    PromisePresenter.data = result;
+                                                    
+                                    PromisePresenter.data = result;
                                             PromisePresenter.render();
                                                     //Vue.render(promiseNoData(promise, data, error) || <SearchResultsView searchResults={data} />, document.getElementById("app"));
                                                 }).catch(e => {
@@ -53,7 +59,7 @@ function SearchPresenter(props)
                                 onDishType={dishType => searchType = dishType }
                                 />
             
-                {<SearchResultsView searchResults={PromisePresenter.data}/>}
+                {promiseNoData(PromisePresenter.promise, PromisePresenter.data, PromisePresenter.error) || <SearchResultsView searchResults={PromisePresenter.data}/>}
             </div>
 
             );

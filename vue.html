@@ -31,17 +31,15 @@
 </body>
     
 <script type="text/jsx">
-    
+    /*Vue.render(promiseNoData("a promise", "some data", null)||<div>Hello World</div>, document.getElementById("app"));*/
 
+const TopLevelModel= {  
+    data(){ return  {model: new DinnerModel()}; }, 
+    render(){  return <App model={this.model} />; }
+};
+Vue.render(<TopLevelModel />, document.getElementById("app"));
 
-
-    const TopLevelModel= {  
-        data(){ return  {model: new DinnerModel()}; }, 
-        render(){  return <App model={this.model} />; }
-    };
-    Vue.render(<TopLevelModel />, document.getElementById("app"));
-
-</script>
+ </script>
 
 
 
