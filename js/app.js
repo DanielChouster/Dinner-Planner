@@ -3,8 +3,8 @@ function RenderTest() { console.log("Vue sub-component render test"); return fal
 function App(props) {
     return (
         <div class="flexParent">
-            <div class="sidebarContent debug"><SidebarPresenter model={props.model} /></div>
-            <div class="maincontent debug"><SearchPresenter model={props.model} /></div>
+            <div class="sidebarContent debug"><SearchPresenter model={props.model} /></div>
+            <div class="maincontent debug"><DetailsPresenter model={props.model} /></div>
             <RenderTest />
         </div>
     );

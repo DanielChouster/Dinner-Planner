@@ -8,7 +8,7 @@ function SidebarPresenter(props){
             setGuests(props.model.numberOfGuests);
             getDish(props.model.dishes);
             removeDish(props.model.removeFromMenu(remDish));
-            dishChoice(props.model.setCurrenDish(choDish));
+            dishChoice(props.model.setCurrentDish(choDish));
         }
         props.model.addObserver(obs);
         return function(){ props.model.removeObserver(obs);}
@@ -16,5 +16,5 @@ function SidebarPresenter(props){
     return (<SidebarView guests={number} dishes={dish}
         setGuests={number=>props.model.setNumberOfGuests(number)}
         removeDish={dish=>props.model.removeFromMenu(dish)}
-        dishChoice={dish=>props.model.setCurrenDish(dish.id)}/>);
+        dishChoice={dish=>props.model.setCurrentDish(dish.id)}/>);
 }
