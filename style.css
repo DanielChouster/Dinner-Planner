@@ -68,7 +68,7 @@ td.b
 .flexParent{
     display: flex;
     flex-direction: row;
-    height: available;
+    height: 100%;
     
 }
 .sidebarContent{
@@ -98,3 +98,7 @@ td.b
 }
 
 
+.hidden
+{
+ display:none;   
+}
