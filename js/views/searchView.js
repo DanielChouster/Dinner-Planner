@@ -16,7 +16,7 @@ function SearchFormView(props) {
                         )
                     })}
             </select>
-            &#160;&#160;<button onClick={event => props.onSearch()}>search!</button>
+            &#160;&#160;<button onClick={event => {props.onSearch()}}>search!</button>
 
         </div>
     );
@@ -45,7 +45,7 @@ function SearchResultsView(props) {
 
                     return (
 
-                        <span class="searchResult" onClick={e=>props.dishChosen((opt.id))}>
+                        <span class="searchResult" onClick={e=>{props.dishChosen((opt.id)); window.location.hash="#details";}}>
 
                             <img src={opt.image} width="100" height="100" ></img>
                             <div>{opt.title}</div>

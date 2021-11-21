@@ -80,6 +80,9 @@ td.b
     margin-left: 20px;
 
 }
+.hidden{
+    display:none;
+}
 @media only screen and (max-width: 768px) {
     .flexParent{flex-direction: column;}
     .mainContent{
