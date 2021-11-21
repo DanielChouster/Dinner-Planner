@@ -6,6 +6,8 @@ function DetailsPresenter(props){
     const [currentDishDetails, setCurrentDishDetails] = React.useState(props.model.currentDish);
     const [dishError, setDishError] = React.useState(props.model.currentDishError);
     
+        const [remDish, removeDish] = React.useState(props.model.dishes);
+        const [addDish, dishAdded] = React.useState(props.model.dishes);
     
     
     React.useEffect( function(){
@@ -16,12 +18,18 @@ function DetailsPresenter(props){
             setCurrentDishDetails(props.model.currentDishDetails);
             setDishError(props.model.currentDishError);
             
+            removeDish(props.model.removeFromMenu(remDish));
+            dishAdded(props.model.removeFromMenu(addDish));
+            
         }
         props.model.addObserver(obs);
         return function(){ props.model.removeObserver(obs);}
     },[props.model]);
     return (promiseNoData(currentDish, currentDishDetails, dishError) ||
             <DetailsView 
-        people={number} dish={currentDishDetails} 
-        isDishInMenu={dishes.includes(currentDish)}/>);
+        people={number} dish={currentDishDetails} dishes={dishes}
+        dishAdded={()=>{props.model.addToMenu(currentDishDetails);console.log(dishes);}}
+        isDishInMenu={dishes.includes(currentDish)}        
+        
+        />);
 }

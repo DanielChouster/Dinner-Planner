@@ -1,4 +1,8 @@
-function DetailsView(props) {
+function DetailsView(props) 
+{
+    //keys
+    let k1 = 0; 
+    let k2 = 0;
     return (
         <div>
 
@@ -34,7 +38,7 @@ function DetailsView(props) {
                     {props.dish.extendedIngredients.map(
                         function (opt) {
                             return (
-                                <div>
+                                <div key={k1++}>
                                     {opt.originalString}
                                 </div>
                             )
@@ -50,7 +54,7 @@ function DetailsView(props) {
                 {props.dish.analyzedInstructions[0].steps.map(
                     function (opt) {
                         return (
-                            <div>
+                            <div key = {k2++}>
                                 {opt.number}.{opt.step}
                             </div>
                         )
