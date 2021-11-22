@@ -37,7 +37,11 @@ function SidebarView(props)
                                                             <button onClick={e => props.removeDish(opt)}>X</button>
                                                         </td>
                                                         <td>
+<<<<<<< HEAD
                                                             <a href="#details" onClick={e => {e.preventDefault();props.dishChoice(opt.id);window.location.hash="#details";}}> {opt.title}</a>
+=======
+                                                            <a href="#details" onClick={e => {e.preventDefault();props.dishChoice(opt.id);}}> {opt.title}</a>
+>>>>>>> c21b264362632093ee4f874c48d98473c8db209c
                                                         </td>
                                                         <td>
                                                             {dishType(opt.dishTypes)}

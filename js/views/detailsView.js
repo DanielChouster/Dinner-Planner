@@ -15,9 +15,15 @@ function DetailsView(props) {
                 <div class="detailsviewbutton">
 
                     <br></br><br></br>
+<<<<<<< HEAD
                     <button disabled={props.isDishInMenu} onClick={event => { props.dishAdded(); window.location.hash = "#search"; }}>Add to menu!</button>
                     &nbsp;&nbsp;&nbsp;
                     <button onClick={e => window.location.hash = "#search"}>Cancel</button>
+=======
+                    <button disabled={props.isDishInMenu} onClick={event => {props.dishAdded();window.location.hash="#search";}}>Add to menu!</button>
+                    &nbsp;&nbsp;&nbsp;
+                    <button onClick={e=>window.location.hash="#search"}>Cancel</button>
+>>>>>>> c21b264362632093ee4f874c48d98473c8db209c
                 </div>
                 <h1>{props.dish.title}</h1>
 
