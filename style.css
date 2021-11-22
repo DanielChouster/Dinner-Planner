@@ -45,10 +45,16 @@ div.price
 
 }
 
+div.detailsviewmain
+{
+    padding: 10px;
+    overflow-y: auto;
+    height: 95%;
+}
+
 div.detailsview
 {
-    border-style: solid;
-    border-width: thin;
+    
     width: 800px;
     padding: 20px;
 }

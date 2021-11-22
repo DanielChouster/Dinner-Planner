@@ -9,7 +9,7 @@ if (props.dish.analyzedInstructions.length!==0)
     step_array=props.dish.analyzedInstructions[0].steps;
     
     return (
-        <div>
+        <div class = "detailsviewmain">
 
 
             <div class="detailsview">
