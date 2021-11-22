@@ -18,6 +18,7 @@ function SidebarView(props)
         return total + props.guests * dish.pricePerServing;
         }
 
+        let k1=0;
 
         return (
                 <div class="sidebar">
@@ -32,16 +33,12 @@ function SidebarView(props)
                             function (opt)
                                 {
                                     return (
-                                                    <tr>
+                                                    <tr key={k1++}>
                                                         <td>
                                                             <button onClick={e => props.removeDish(opt)}>X</button>
                                                         </td>
                                                         <td>
-<<<<<<< HEAD
                                                             <a href="#details" onClick={e => {e.preventDefault();props.dishChoice(opt.id);window.location.hash="#details";}}> {opt.title}</a>
-=======
-                                                            <a href="#details" onClick={e => {e.preventDefault();props.dishChoice(opt.id);}}> {opt.title}</a>
->>>>>>> c21b264362632093ee4f874c48d98473c8db209c
                                                         </td>
                                                         <td>
                                                             {dishType(opt.dishTypes)}
@@ -109,6 +106,3 @@ function compareDishes(a, b)
                 return 0;
             }
     }
-
-
-
