@@ -68,6 +68,22 @@ class DinnerModel {
                 )
     }
 
+    isDishInMenu(id) {
+        let b = false;
+        this.dishes.forEach(d => {
+            if (d.id === id)
+                b = true;
+        }
+        )
+
+        return b;
+    }
+
+
+    setDishes(dishes) { this.dishes = [...dishes]; this.notifyObservers(); }
+
+
+
     addObserver(callback) {
         this.observers = [...this.observers, callback];
 

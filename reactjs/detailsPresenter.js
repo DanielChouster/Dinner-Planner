@@ -6,6 +6,8 @@ function DetailsPresenter(props){
     const [currentDishDetails, setCurrentDishDetails] = React.useState(props.model.currentDish);
     const [dishError, setDishError] = React.useState(props.model.currentDishError);
     
+    const [isDishInMenu, setisDishInMenu] = React.useState(props.model.isDishInMenu(props.model.currentDish));
+    
         const [remDish, removeDish] = React.useState(props.model.dishes);
         const [addDish, dishAdded] = React.useState(props.model.dishes);
     
@@ -18,6 +20,8 @@ function DetailsPresenter(props){
             setCurrentDishDetails(props.model.currentDishDetails);
             setDishError(props.model.currentDishError);
             
+            setisDishInMenu(props.model.isDishInMenu(props.model.currentDish));
+            
             removeDish(props.model.removeFromMenu(remDish));
             dishAdded(props.model.removeFromMenu(addDish));
             
@@ -27,9 +31,10 @@ function DetailsPresenter(props){
     },[props.model]);
     return (promiseNoData(currentDish, currentDishDetails, dishError) ||
             <DetailsView 
-        people={number} dish={currentDishDetails} dishes={dishes}
+        people={number} dish={currentDishDetails} dishes={dishes} 
+        isDishInMenu={isDishInMenu}
         dishAdded={()=>{props.model.addToMenu(currentDishDetails);console.log(dishes);}}
-        isDishInMenu={dishes.includes(currentDish)}        
+                
         
         />);
 }

@@ -17,6 +17,13 @@
     <script src="reactjs/summaryPresenter.js" type="text/jsx"></script>
     <script src="reactjs/searchPresenter.js" type="text/jsx"></script>
     <script src="reactjs/showPresenter.js" type="text/jsx"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-database.js"></script>
+    <script src="js/firebaseConfig.js"></script>
+
+    <script src="js/firebaseModel.js"></script>
+
+
     <script src="js/app.js" type="text/jsx"></script>
     <script src="reactjs/showPresenter.js" type="text/jsx"></script>
     <link rel="stylesheet" href="style.css">
@@ -32,6 +39,8 @@
 <!--<script>const myModel = new DinnerModel();</script>-->
 <script type="text/jsx">
 const myModel=new DinnerModel(3); 
+persistModel(myModel);
+
    ReactDOM.render(<App model={myModel}/>, document.getElementById("app"));
       
     
