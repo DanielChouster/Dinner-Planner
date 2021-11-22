@@ -25,7 +25,7 @@ function persistModel(model) {
 
 }
 
-firebase.initializeApp(firebaseConfig);
+//firebase.initializeApp(firebaseConfig);
 
 
 
