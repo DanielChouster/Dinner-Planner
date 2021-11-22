@@ -4,7 +4,7 @@ function SearchFormView(props) {
     let k1 = 0; //key
     return (
         <div>
-            <input type="search" onInput={e => props.onText(e.target.value)} />&#160;&#160;
+            <input type="search" placeholder="search for dish.." onInput={e => props.onText(e.target.value)} />&#160;&#160;
             <select onChange={e => props.onDishType(e.target.value)}>
                 <option>Choose:</option>
                 {props.options.map(
