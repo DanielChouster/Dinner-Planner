@@ -21,7 +21,7 @@ function SidebarView(props)
 
         return (
                 <div class="sidebar">
-                    
+                    <p>Guests</p>
                     <button disabled={b} onClick={e => props.setGuests(props.guests - 1)}>–</button>
                     <span>&nbsp;{props.guests}&nbsp;</span>
                     <button onClick={e => props.setGuests(props.guests + 1)}>+</button>
@@ -34,10 +34,10 @@ function SidebarView(props)
                                     return (
                                                     <tr>
                                                         <td>
-                                                            <button onClick={e => props.removeDish(opt.id)}>X</button>
+                                                            <button onClick={e => props.removeDish(opt)}>X</button>
                                                         </td>
                                                         <td>
-                                                            <a href="" onClick={e => {e.preventDefault();props.dishChoice(opt.id);}}> {opt.title}</a>
+                                                            <a href="#details" onClick={e => {e.preventDefault();props.dishChoice(opt.id);window.location.hash="#details";}}> {opt.title}</a>
                                                         </td>
                                                         <td>
                                                             {dishType(opt.dishTypes)}

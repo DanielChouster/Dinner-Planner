@@ -4,6 +4,7 @@ function SummaryView(props) {
         props.ingredients = [];
     return (// a lonely return on a line returns undefined. Parentheses needed
         <div class="summaryview">
+            <button onClick={e=>window.location.hash="#search"}>Back to search</button>
             <br></br>
             <div>
                 <br></br>&#160;&#160;

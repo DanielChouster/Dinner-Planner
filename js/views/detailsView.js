@@ -1,8 +1,12 @@
-function DetailsView(props) 
-{
+function DetailsView(props) {
     //keys
-    let k1 = 0; 
+    let k1 = 0;
     let k2 = 0;
+
+    let step_array = [];
+    if (props.dish.analyzedInstructions.length !== 0)
+        step_array = props.dish.analyzedInstructions[0].steps;
+
     return (
         <div>
 
@@ -11,9 +15,9 @@ function DetailsView(props)
                 <div class="detailsviewbutton">
 
                     <br></br><br></br>
-                    <button disabled={props.isDishInMenu} onClick={event => props.dishAdded()}>Add to menu!</button>
+                    <button disabled={props.isDishInMenu} onClick={event => { props.dishAdded(); window.location.hash = "#search"; }}>Add to menu!</button>
                     &nbsp;&nbsp;&nbsp;
-                    <button >Cancel</button>
+                    <button onClick={e => window.location.hash = "#search"}>Cancel</button>
                 </div>
                 <h1>{props.dish.title}</h1>
 
@@ -51,10 +55,10 @@ function DetailsView(props)
                 <h3>Instructions</h3>
 
 
-                {props.dish.analyzedInstructions[0].steps.map(
+                {step_array.map(
                     function (opt) {
                         return (
-                            <div key = {k2++}>
+                            <div key={k2++}>
                                 {opt.number}.{opt.step}
                             </div>
                         )

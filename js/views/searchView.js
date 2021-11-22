@@ -4,7 +4,7 @@ function SearchFormView(props) {
     let k1 = 0; //key
     return (
         <div>
-            <input type="search" onInput={e => props.onText(e.target.value)} />&#160;&#160;
+            <input type="search" placeholder="search for dish.." onInput={e => props.onText(e.target.value)} />&#160;&#160;
             <select onChange={e => props.onDishType(e.target.value)}>
                 <option>Choose:</option>
                 {props.options.map(
@@ -18,7 +18,7 @@ function SearchFormView(props) {
                     })}
             </select>
             &#160;&#160;<button onClick={event => { props.onSearch() }}>search!</button>
-
+            <button onClick={e=>window.location.hash="#summary"}>Summary</button>
         </div>
     );
 
@@ -46,7 +46,7 @@ function SearchResultsView(props) {
 
                     return (
 
-                        <span key={k1++} class="searchResult" onClick={e => props.dishChosen((opt.id))}>
+                        <span key={k1++} class="searchResult" onClick={e => {props.dishChosen((opt.id));window.location.hash="#details";}}>
 
 
                             <img src={opt.image} width="100" height="100" ></img>

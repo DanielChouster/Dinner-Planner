@@ -16,5 +16,5 @@ function SidebarPresenter(props){
     return (<SidebarView guests={number} dishes={dish}
         setGuests={number=>props.model.setNumberOfGuests(number)}
         removeDish={dish=>props.model.removeFromMenu(dish)}
-        dishChoice={dish=>props.model.setCurrentDish(dish.id)}/>);
+        dishChoice={dishid=>props.model.setCurrentDish(dishid)}/>);
 }

@@ -1,7 +1,7 @@
 function Show(props){
-    const [hashState, setHash] = React.useState(props.hash);
+    const [hashState, setHash] = React.useState(window.location.hash);
     React.useEffect(function(){
-        const listener = function(){setHash(window.location.hash);}
+        const listener = function(){setHash(window.location.hash);defaultRoute()}
         window.addEventListener("hashchange", listener);
         return function(){ window.removeEventListener("hashchange", listener);}
     },[]);

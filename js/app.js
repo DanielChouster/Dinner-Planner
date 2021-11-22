@@ -3,9 +3,9 @@ function RenderTest() {
     return false;
 }
 function App(props) {
+    window.location.hash ="";
     defaultRoute();
-    window.addEventListener("hashchange", defaultRoute);
-
+    
     return (
         <div class="flexParent">
             <div class="sidebarContent debug"><SidebarPresenter model={props.model} /></div>
@@ -26,7 +26,6 @@ function defaultRoute() {
 
     if (window.location.hash === "" || !["#search", "#summary", "#details"].includes(window.location.hash))
         window.location.hash = "#search";
-
     /*
     if (["#search", "#summary", "#details"].find((knownRoute) => knownRoute = window.location.hash)) window.location.hash = "#search";*/
 }

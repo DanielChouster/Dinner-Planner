@@ -37,14 +37,14 @@ class DinnerModel {
             this.dishes = Object.values(this.dishes).filter(removeFilter); //create new array with one less element
 
             function removeFilter(currentDish) {
-                return currentDish.id !== dishData; //returns true if the element should be added to the new array, i.e. not to be filtered
+                return currentDish.id !== dishData.id; //returns true if the element should be added to the new array, i.e. not to be filtered
             }
             this.notifyObservers(); //Should skip if if not in menu
         }
     }
 
     setCurrentDish(id) {
-        if (this.currentDish === id)
+        if (this.currentDish === id || id === null)
             return;
 
         this.currentDish = id;
