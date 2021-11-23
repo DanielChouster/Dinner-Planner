@@ -5,7 +5,7 @@ function Show(props){
         window.addEventListener("hashchange", listener);
         return function(){ window.removeEventListener("hashchange", listener);}
     },[]);
-    return(<div class={props.hash === hashState ? "" : "hidden"}>
+    return(<div className={props.hash === hashState ? "" : "hidden"}>
         {props.children}
     </div>)
 }

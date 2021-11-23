@@ -39,14 +39,14 @@ function SearchResultsView(props) {
     console.log(props.searchResults);
 
     return (
-        <div class="searchresultsview">
+        <div className="searchresultsview">
 
             {props.searchResults.data.results.map(
                 function (opt) {
 
                     return (
 
-                        <span key={k1++} class="searchResult" onClick={e => {props.dishChosen((opt.id));window.location.hash="#details";}}>
+                        <span key={k1++} className="searchResult" onClick={e => {props.dishChosen((opt.id));window.location.hash="#details";}}>
 
 
                             <img src={opt.image} width="100" height="100" ></img>

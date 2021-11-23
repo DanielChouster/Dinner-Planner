@@ -5,7 +5,7 @@ function SummaryView(props) {
     if (typeof props.ingredients === "undefined")
         props.ingredients = [];
     return (// a lonely return on a line returns undefined. Parentheses needed
-        <div class="summaryview">
+        <div className="summaryview">
             <button onClick={e=>window.location.hash="#search"}>Back to search</button>
             <br></br>
             <div>
@@ -14,18 +14,18 @@ function SummaryView(props) {
                 <br></br> <br></br>
             </div>
             <div>
-                <table class="b">
+                <table className="b">
 
                     <thead>
                         <tr>
 
-                            <td class="b">
+                            <td className="b">
                                 Ingredient
                             </td>
-                            <td class="b">
+                            <td className="b">
                                 Aisle
                             </td>
-                            <td class="b">
+                            <td className="b">
                                 Quantity
                             </td>
                         </tr>
@@ -38,13 +38,13 @@ function SummaryView(props) {
 
                                     <tr key={k1++}>
 
-                                        <td key={k2++} class="b">
+                                        <td key={k2++} className="b">
                                             {opt.name}
                                         </td>
-                                        <td key={k2++} class="b">
+                                        <td key={k2++} className="b">
                                             {opt.aisle}
                                         </td>
-                                        <td key={k2++} class="b">
+                                        <td key={k2++} className="b">
                                             {(opt.amount * props.persons).toFixed(1)}&#160;{opt.unit}
                                         </td>
                                     </tr>

@@ -21,7 +21,7 @@ function SidebarView(props)
         let k1=0;
 
         return (
-                <div class="sidebar">
+                <div className="sidebar">
                     <p>Guests</p>
                     <button disabled={b} onClick={e => props.setGuests(props.guests - 1)}>–</button>
                     <span>&nbsp;{props.guests}&nbsp;</span>

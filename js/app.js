@@ -7,9 +7,9 @@ function App(props) {
     defaultRoute();
     
     return (
-        <div class="flexParent">
-            <div class="sidebarContent debug"><SidebarPresenter model={props.model} /></div>
-            <div class="maincontent debug">
+        <div className="flexParent">
+            <div className="sidebarContent debug"><SidebarPresenter model={props.model} /></div>
+            <div className="maincontent debug">
                 <Show hash="#search"><SearchPresenter model={props.model} /></Show>
                 <Show hash="#summary"><SummaryPresenter model={props.model} /></Show>
                 <Show hash="#details"><DetailsPresenter model={props.model} /></Show>
