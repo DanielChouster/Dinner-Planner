@@ -1,4 +1,4 @@
-const REF = "dinnerModel" + 50;
+const REF = "dinnerModel";// + 50;//"dh2642vvik-default-rtdb";
 function persistModel(model) {
 	let loadingFromFirebase = false;// boolean flag, used in a JS closure
 	model.addObserver(function () {
@@ -14,6 +14,7 @@ function persistModel(model) {
 
 	firebase.database().ref(REF).on("value", function (data) {
 		loadingFromFirebase = true;
+		console.log(data.val().guests);
 		if (data.val()) {
 			model.setNumberOfGuests(data.val().guests);
 			model.setDishes(data.val().dishes || []);
@@ -25,7 +26,6 @@ function persistModel(model) {
 
 }
 
-//firebase.initializeApp(firebaseConfig);
 
 
 
