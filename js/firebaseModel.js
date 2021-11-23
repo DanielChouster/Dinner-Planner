@@ -14,7 +14,7 @@ function persistModel(model) {
 
 	firebase.database().ref(REF).on("value", function (data) {
 		loadingFromFirebase = true;
-		console.log(data.val().guests);
+		//console.log(data.val().guests);
 		if (data.val()) {
 			model.setNumberOfGuests(data.val().guests);
 			model.setDishes(data.val().dishes || []);

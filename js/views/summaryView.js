@@ -1,5 +1,7 @@
 function SummaryView(props) {
     //console.log("write " + props);
+    let k1 = 1;
+    let k2 = 1;
     if (typeof props.ingredients === "undefined")
         props.ingredients = [];
     return (// a lonely return on a line returns undefined. Parentheses needed
@@ -31,17 +33,18 @@ function SummaryView(props) {
                     <tbody>
                         {props.ingredients.sort(compareIngredients).map(
                             function (opt) {
+                                
                                 return (
 
-                                    <tr>
+                                    <tr key={k1++}>
 
-                                        <td class="b">
+                                        <td key={k2++} class="b">
                                             {opt.name}
                                         </td>
-                                        <td class="b">
+                                        <td key={k2++} class="b">
                                             {opt.aisle}
                                         </td>
-                                        <td class="b">
+                                        <td key={k2++} class="b">
                                             {(opt.amount * props.persons).toFixed(1)}&#160;{opt.unit}
                                         </td>
                                     </tr>

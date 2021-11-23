@@ -43,7 +43,7 @@ function SidebarView(props)
                                                         <td>
                                                             {dishType(opt.dishTypes)}
                                                         </td>
-                                                        <td class="price">
+                                                        <td className="price">
                                                            {opt.pricePerServing}
                                                         </td>
                                                     </tr>
@@ -61,7 +61,7 @@ function SidebarView(props)
                                 <td>
                 
                                 </td>
-                                <td class="price">
+                                <td className="price">
                                     {totalPrice.toFixed(2)}
                                 </td>
                             </tr>
